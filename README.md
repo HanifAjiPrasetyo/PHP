@@ -47,4 +47,4 @@ if ($read) {
 <h1><?= $message ?></h1>
 ```
 #### Maka akan tampil "You have read Dark Matter" pada web browser, karena bernilai true :
-[IF-ELSE](/blob/if-else.png)
+![alt text](https://github.com/HanifAjiPrasetyo/PHP/blob/main/if-else.png?raw=true)
