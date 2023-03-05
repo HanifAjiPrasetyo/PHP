@@ -67,4 +67,4 @@ $books = [
     </ul>
 ```
 #### Maka akan tampil di web browser :
-![if-else](https://github.com/HanifAjiPrasetyo/PHP/blob/main/foreach.png?raw=true)
+![if-else](https://github.com/HanifAjiPrasetyo/PHP/blob/main/foreach-array.png?raw=true)
