@@ -47,4 +47,24 @@ if ($read) {
 <h1><?= $message ?></h1>
 ```
 #### Maka akan tampil "You have read Dark Matter" pada web browser, karena bernilai true :
-![alt text](https://github.com/HanifAjiPrasetyo/PHP/blob/main/if-else.png?raw=true)
+![if-else](https://github.com/HanifAjiPrasetyo/PHP/blob/main/if-else.png?raw=true)
+## 4. Arrays
+#### Array dalam pemgrograman termasuk PHP, merupakan suatu tipe data terstruktur yang dapat menyimpan banyak data dengan suatu nama yang sama dan menempati tempat di memori yang berurutan serta bertipe data sama pula. Dalam PHP, array adalah struktur data yang memungkinkan untuk menyimpan beberapa elemen dalam satu variabel. Elemen-elemen ini disimpan sebagai pasangan nilai-kunci. Contoh deklarasi array :
+```
+<?php
+$books = [
+  "Do Androids Dream of Electric Sheep",
+  "The Langoliers",
+  "Hail Mary
+];
+```
+#### Untuk memperoleh isi dari array tersebut, dapat digunakan ekspresi perulangan(*loop*) di dalam tag html, misalnya *for, foreach, while,* atau *do-while*. Contoh menggunakan *foreach* :
+```
+ <ul>
+        <?php foreach ($books as $book) : ?>
+            <li><?= $book ?></li>
+        <?php endforeach ?>
+    </ul>
+```
+#### Maka akan tampil di web browser :
+![if-else](https://github.com/HanifAjiPrasetyo/PHP/blob/main/foreach.png?raw=true)
