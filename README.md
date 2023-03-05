@@ -42,8 +42,8 @@ if ($read) {
 ```
 #### Di dalam body tag html
 ```
- <!-- Pemanggilan variabel $message di dalam tag html
-    Menggunakan <?php echo $message ?> atau <= $message untuk ditampilkan di web browser ?> -->
+ <!-- Print variabel $message ke web browser di dalam tag html
+    Menggunakan <?php echo $message ?> atau <= $message ?> -->
 <h1><?= $message ?></h1>
 ```
 #### Maka akan tampil "You have read Dark Matter" pada web browser, karena bernilai true :
