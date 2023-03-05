@@ -46,3 +46,4 @@ if ($read) {
     Menggunakan <?php echo $message ?> atau <= $message untuk ditampilkan di web browser ?> -->
 <h1><?= $message ?></h1>
 ```
+#### Maka akan tampil "You have read Dark Matter" pada web browser, karena bernilai true.
