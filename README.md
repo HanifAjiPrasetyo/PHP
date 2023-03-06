@@ -85,3 +85,4 @@ $books = [
   ]
 ]
 ```
+#### Setiap item dalam array di atas memiliki identifier atau key dengan value masing-masing, contohnya *key : name, value : Project Hail Mary*.
