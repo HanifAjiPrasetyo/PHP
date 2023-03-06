@@ -64,7 +64,24 @@ $books = [
         <?php foreach ($books as $book) : ?>
             <li><?= $book ?></li>
         <?php endforeach ?>
-    </ul>
+ </ul>
 ```
 #### Maka akan tampil di web browser :
 ![if-else](https://github.com/HanifAjiPrasetyo/PHP/blob/main/foreach-array.png?raw=true)
+## 5. Associative Arrays
+#### Associative array merupakan array yang berisi satu atau lebih array, dimana terdapat key dan value pada setiap data, contoh :
+```
+<?php
+$books = [
+  [
+    'name' => "Do Androids Dream of Electric Sheep",
+    'author' => "Philip K. Dick",
+    'purchaseUrl' => "http://example.com"
+  ],
+  [
+    'name' => "Project Hail Mary",
+    'author' => "Andy Weir",
+    'purchaseUrl' => "http://example.com"
+  ]
+]
+```
