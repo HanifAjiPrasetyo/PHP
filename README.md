@@ -334,7 +334,7 @@ $filteredBooks = array_filter($books, function ($book) {
     <?php endforeach; ?>
 </ul>
 ```
-## Separate PHP Logic From the Template
+## 8. Separate PHP Logic From the Template
 #### Untuk menyederhanakan tampilan dari file php, kita dapat memisahkan logika PHP ke dalam file tertentu. Contoh :
 #### Di dalam file index.php :
 ```php
