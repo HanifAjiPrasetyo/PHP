@@ -91,17 +91,40 @@ $books = [
 Sedangkan *filtering* dalam pemrograman termasuk PHP mengacu pada proses memilih sebagian data dari kumpulan data berdasarkan suatu kriteria tertentu. Ini dilakukan dengan menggunakan perintah atau fungsi yang umumnya dinamakan filter.
 Contoh filter :
 ```php
+<?php
+    $books = [
+        [
+            'name' => "Do Androids Dream of Electric Sheep",
+            'author' => "Philip K. Dick",
+            'releaseYear' => 1968,
+            'purchaseUrl' => "http://example.com"
+        ],
+        [
+            'name' => "Project Hail Mary",
+            'author' => "Andy Weir",
+            'releaseYear' => 2021,
+            'purchaseUrl' => "http://example.com"
+        ],
+        [
+            'name' => "The Martian",
+            'author' => "Andy Weir",
+            'releaseYear' => 2011,
+            'purchaseUrl' => "http://example.com"
+        ]
+    ];
+ ?>
+ 
 <ul>
-<?php foreach ($books as $book) : ?>
-// Filter dengan if, filter buku berdasarkan nama author
-    <?php if ($book['author'] = 'Andy Weir') : ?>
-      <li>
-        <a href="<?= $book['purchaseUrl'] ?>">
-         <?= $book['name']; ?> (<?= $book['releaseYear'] ?>) - By <?= $book['author'] ?>
-        </a>
-      </li>
-    <?php endif ?>
-   <?php endforeach ?>
+    <?php foreach ($books as $book) : ?>
+    // Filter dengan if, filter buku berdasarkan nama author
+        <?php if ($book['author'] = 'Andy Weir') : ?>
+          <li>
+            <a href="<?= $book['purchaseUrl'] ?>">
+             <?= $book['name']; ?> (<?= $book['releaseYear'] ?>) - By <?= $book['author'] ?>
+            </a>
+          </li>
+        <?php endif ?>
+    <?php endforeach ?>
 </ul>
 ```
 #### Pengkondisian dengan sebuah tanda "=" seperti di atas tidak tepat, karena 1 "=" akan mengubah value dari semua key author menjadi 'Andy Weir' atau dinamakan *assign value*, sedangkan dibutuhkan filter data untuk menampilkan buku dengan author "Andy Weir" saja atau *equal to*, sehingga harus dicek kesamaan atau *equality* dengan 3 tanda "=" atau "===". Maka kondisi dalam if menjadi :
@@ -246,8 +269,11 @@ function filter($items, $key, $value)
         }
         return $filteredItems; // Array baru berisi data buku yang telah di-filter
     }
-
-    $filteredBooks = filter($books, 'author', 'Philip K. Dick');
+    // Filter berdasarkan author
+    // $filteredBooks = filter($books, 'author', 'Philip K. Dick');
+    
+    //Filter berdasarkan tahun rilis
+    $filteredBooks = filter($books, 'releaseYear', 2011);
     ?>
    
     <ul>
@@ -259,4 +285,54 @@ function filter($items, $key, $value)
             </li>
         <?php endforeach ?>
     </ul>
+```
+#### Selain itu, *refactoring* juga dapat diimplementasikan jika menginginkan value yang lebih fleksibel, misalnya terdapat integer dan ingin menampilkan data yang <= value tersebut, maka kita dapat memisahkan pengkondisian *if* ke dalam sebuah function, sehingga menjadi :
+```php
+function filter($items, $function)
+    {
+        $filteredItems = [];
+
+        foreach ($items as $item) {
+            if ($function($item)) {
+                $filteredItems[] = $item;
+            }
+        }
+        return $filteredItems;
+    }
+    
+    //Filter berdasarkan tahun rilis < 2000, karena value merupakan integer
+    $filteredBooks = filter($books, function($book){
+        return $book['releaseYear'] < 2000;
+    });
+    ?>
+   
+   // Menampilkan buku dengan tahun rilis < 2000
+    <ul>
+        <?php foreach ($filteredBooks as $book) : ?>
+            <li>
+                <a href="<?= $book['purchaseUrl'] ?>">
+                    <?= $book['name']; ?> (<?= $book['releaseYear'] ?>) - By <?= $book['author'] ?>
+                </a>
+            </li>
+        <?php endforeach ?>
+    </ul>
+```
+#### Sebenarnya, untuk mem-filter array dengan function di atas, PHP sudah menyediakan built-in function, sehingga tidak perlu membuat secara manual, yaitu array_filter() :
+```php
+// Built-in function untuk filtering array
+$filteredBooks = array_filter($books, function ($book) {
+    return $book['releaseYear'] > 2000;
+});
+?>
+
+<!-- Menampilkan buku berdasarkan filter -->
+<ul>
+    <?php foreach ($filteredBooks as $book) : ?>
+        <li>
+            <a href="<?= $book['purchaseUrl'] ?>">
+                <?= $book['name']; ?> (<?= $book['releaseYear'] ?>) - By <?= $book['author'] ?>
+            </a>
+        </li>
+    <?php endforeach; ?>
+</ul>
 ```
