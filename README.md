@@ -1,6 +1,8 @@
 # PHP BASIC
 ##### Sumber Youtube : [Laracast](https://www.youtube.com/playlist?list=PL3VM-unCzF8ipG50KDjnzhugceoSG3RTC)
 #### PHP pada umumnya digunakan dalam pembuatan website dinamis, yaitu sebuah website yang memungkinkan penggunanya untuk berinteraksi secara langsung, dalam artian pengguna dapat menambah, memodifikasi, ataupun menghapus konten di dalam sebuah web tanpa harus membuka struktur kode dari web tersebut. Kita juga dapat menyisipkan tag html apapun di dalam file PHP, namun tidak berlaku sebaliknya, tag PHP tidak dapat disisipkan di dalam file html.
+
+# SECTION 1
 ## 1. Tag PHP
 #### Di dalam file php, tag php dimulai dengan :
 ```php
@@ -331,4 +333,64 @@ $filteredBooks = array_filter($books, function ($book) {
         </li>
     <?php endforeach; ?>
 </ul>
+```
+## Separate PHP Logic From the Template
+#### Untuk menyederhanakan tampilan dari file php, kita dapat memisahkan logika PHP ke dalam file tertentu. Contoh :
+#### Di dalam file index.php :
+```php
+<?php
+$books = [
+    [
+        'name' => "Do Androids Dream of Electric Sheep",
+        'author' => "Philip K. Dick",
+        'releaseYear' => 1968,
+        'purchaseUrl' => "http://example.com"
+    ],
+    [
+        'name' => "Project Hail Mary",
+        'author' => "Andy Weir",
+        'releaseYear' => 2021,
+        'purchaseUrl' => "http://example.com"
+    ],
+    [
+        'name' => "The Martian",
+        'author' => "Andy Weir",
+        'releaseYear' => 2011,
+        'purchaseUrl' => "http://example.com"
+    ]
+];
+
+// Built-in function untuk filtering array
+$filteredBooks = array_filter($books, function ($book) {
+    return $book['releaseYear'] > 2000;
+});
+
+require 'index.view.php'; // require digunakan untuk load halaman HTML di dalam file index.view.php
+```
+#### Di dalam file index.view.php :
+```php
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEMO</title>
+</head>
+
+<body>
+    <!-- Menampilkan buku berdasarkan filter -->
+    <ul>
+        <?php foreach ($filteredBooks as $book) : ?>
+            <li>
+                <a href="<?= $book['purchaseUrl'] ?>">
+                    <?= $book['name']; ?> (<?= $book['releaseYear'] ?>) - By <?= $book['author'] ?>
+                </a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</body>
+
+</html>
 ```
