@@ -205,3 +205,30 @@ $filteredBooks = filterByAuthor($books, 'Andy Weir');
     <?php endforeach ?>
 </ul>
 ```
+#### Selain itu, function juga dapat langsung dibuat di dalam sebuah variabel, sehingga nama function merupakan nama variabel tersebut. Trik ini dinamakan **Lambda Function** atau **Anonymous Function**, contoh :
+```php
+// Variabel berisi function
+$filterByAuthor = function ($books, $author) {
+  $filteredBooks = [];
+      foreach ($books as $book) {
+          if ($book['author'] === $author) {
+              $filteredBooks[] = $book;
+          }
+       }
+    return $filteredBooks; // Array baru berisi data buku yang telah di-filter
+};
+
+$filteredBooks = $filterByAuthor($books, 'Andy Weir');
+?>
+    
+// Pemanggilan dalam tag HTML
+<ul>
+    <?php foreach ($filteredBooks as $book) : ?>
+        <li>
+            <a href="<?= $book['purchaseUrl'] ?>">
+                <?= $book['name']; ?> (<?= $book['releaseYear'] ?>) - By <?= $book['author'] ?>
+            </a>
+        </li>
+    <?php endforeach ?>
+</ul>
+```
