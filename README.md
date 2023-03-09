@@ -43,7 +43,7 @@ if ($read) {
 <?
 ```
 #### Di dalam body tag html
-```html
+```php
  <!-- Print variabel $message ke web browser di dalam tag html
     Menggunakan <?php echo $message ?> atau <= $message ?> -->
 <h1><?= $message ?></h1>
@@ -55,11 +55,11 @@ if ($read) {
 $books = [
   "Do Androids Dream of Electric Sheep",
   "The Langoliers",
-  "Hail Mary
+  "Hail Mary"
 ];
 ```
 #### Untuk memperoleh isi dari array tersebut, dapat digunakan ekspresi perulangan(*loop*) di dalam tag html, misalnya *for, foreach, while,* atau *do-while*. Contoh menggunakan *foreach* :
-```html
+```php
  <ul>
         <?php foreach ($books as $book) : ?>
             <li><?= $book ?></li>
@@ -335,7 +335,7 @@ $filteredBooks = array_filter($books, function ($book) {
 </ul>
 ```
 ## 8. Separate PHP Logic From the Template
-#### Untuk menyederhanakan tampilan dari file php, kita dapat memisahkan logika PHP ke dalam file tertentu. Contoh :
+#### Untuk menyederhanakan tampilan dari file php, kita dapat memisahkan logika PHP ke dalam file tertentu. Digunakan tag ```require``` untuk load file lain. Contoh :
 #### Di dalam file index.php :
 ```php
 <?php
@@ -394,3 +394,5 @@ require 'index.view.php'; // require digunakan untuk load halaman HTML di dalam 
 
 </html>
 ```
+
+# SECTION 2
