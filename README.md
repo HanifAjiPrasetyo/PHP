@@ -46,8 +46,6 @@ if ($read) {
     Menggunakan <?php echo $message ?> atau <= $message ?> -->
 <h1><?= $message ?></h1>
 ```
-#### Maka akan tampil "You have read Dark Matter" pada web browser, karena bernilai true :
-![if-else](https://github.com/HanifAjiPrasetyo/PHP/blob/main/if-else.png?raw=true)
 ## 4. Arrays
 #### Array dalam pemgrograman termasuk PHP, merupakan suatu tipe data terstruktur yang dapat menyimpan banyak data dengan suatu nama yang sama dan menempati tempat di memori yang berurutan serta bertipe data sama pula. Dalam PHP, array adalah struktur data yang memungkinkan untuk menyimpan beberapa elemen dalam satu variabel. Elemen-elemen ini disimpan sebagai pasangan nilai-kunci. Contoh deklarasi array :
 ```php
@@ -66,8 +64,6 @@ $books = [
         <?php endforeach ?>
  </ul>
 ```
-#### Maka akan tampil di web browser :
-![if-else](https://github.com/HanifAjiPrasetyo/PHP/blob/main/foreach-array.png?raw=true)
 ## 5. Associative Arrays
 #### Associative array merupakan array yang berisi satu atau lebih array, dimana terdapat key dan value pada setiap data, contoh :
 ```php
