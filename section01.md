@@ -390,5 +390,3 @@ require 'index.view.php'; // require digunakan untuk load halaman HTML di dalam 
 
 </html>
 ```
-
-# SECTION 2
