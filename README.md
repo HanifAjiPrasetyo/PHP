@@ -189,3 +189,19 @@ function filterByAuthor($books, $author)
     <?php endforeach ?>
 </ul>
 ```
+## 7. Lambda Functions
+#### Dari contoh function sebelumnya, function dapat digunakan untuk mem-filter buku berdasarkan nama author. Namun, hal tersebut masih kurang generik dan fleksibel. Misalnya, jika ingin mem-filter berdasarkan tahun release buku, maka harus membuat function baru. Selain itu, function tersebut juga dapat dimasukkan ke dalam sebuah variabel atau dinamakan *extract variable*, contoh :
+```php
+$filteredBooks = filterByAuthor($books, 'Andy Weir');
+?>
+// Pemanggilan function lebih sederhana, menghasilkan output yang sama
+<ul>
+    <?php foreach ($filteredBooks as $book) : ?>
+        <li>
+            <a href="<?= $book['purchaseUrl'] ?>">
+                <?= $book['name']; ?> (<?= $book['releaseYear'] ?>) - By <?= $book['author'] ?>
+            </a>
+        </li>
+    <?php endforeach ?>
+</ul>
+```
