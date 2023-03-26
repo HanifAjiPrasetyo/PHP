@@ -1,5 +1,5 @@
 # SECTION 2
-## PAGE LINKS
+## 1. PAGE LINKS
 #### Page link merupakan link di dalam sebuah website yang berfungsi untuk berpindah ke halaman lain. Misalnya, dalam sebuah website terdapat halaman home, about, dan contact, maka untuk mengakses atau berpindah dari halaman satu ke halaman lain, digunakan page link yang berupa tag ```a``` dari html. 
 Contohnya adalah :
 ```html
@@ -24,7 +24,7 @@ Contohnya adalah :
 ![](https://github.com/HanifAjiPrasetyo/PHP/blob/main/files/img/Screenshot%20(2107).png)
 #### Secara default, web mengarah ke halaman home. Jika ingin mengakses halaman lain, maka klik pada link lainnya.
 ![](https://github.com/HanifAjiPrasetyo/PHP/blob/main/files/img/Screenshot%20(2109).png)
-## PARTIALS
+## 2. PARTIALS
 #### Partials adalah bagian-bagian kecil dari kode HTML, CSS, atau JavaScript yang dapat digunakan kembali di beberapa halaman atau template pada sebuah website. Partial biasanya berisi kode yang sering digunakan seperti header, footer, sidebar, dan bagian lain dari layout atau komponen pada halaman web. Bagian yang terpisah ini nantinya dapat di-load menggunakan ```require``` atau ```include``` pada PHP.
 #### Langkah awal yang dapat dilakukan yaitu membuat folder baru, yang dapat diberi nama partials.
 #### Misalnya bagian navbar dipisah dengan membuat file bernama navbar.php di dalam folder partials :
