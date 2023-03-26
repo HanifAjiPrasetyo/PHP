@@ -164,7 +164,7 @@ function filterByAuthor($books)
         $filteredBooks = [];
 
         foreach ($books as $book) {
-            if ($book['name'] === 'Andy Weir') {
+            if ($book['author'] === 'Andy Weir') {
                 $filteredBooks[] = $book;
             }
         }
@@ -189,7 +189,7 @@ function filterByAuthor($books, $author)
         $filteredBooks = [];
 
         foreach ($books as $book) {
-            if ($book['name'] === $author) {
+            if ($book['author'] === $author) {
                 $filteredBooks[] = $book;
             }
         }
@@ -390,5 +390,3 @@ require 'index.view.php'; // require digunakan untuk load halaman HTML di dalam 
 
 </html>
 ```
-
-# SECTION 2
